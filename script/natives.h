@@ -3266,9 +3266,9 @@ namespace WEAPON
 	static BOOL HAS_VEHICLE_BEEN_DAMAGED_BY_WEAPON(Vehicle vehicle, Hash weaponHash) { return invoke<BOOL>(0xB14B7C18, vehicle, weaponHash); } // unused
 	static Any CLEAR_VEHICLE_LAST_WEAPON_DAMAGE() { return invoke<Any>(0xE59FA6AF); } // unused
 	static Weapon SET_PED_DROPS_WEAPON(Ped ped, Weapon weapon) { return invoke<Weapon>(0x3D3329FA, ped, weapon); }
-	static Any GET_MAX_AMMO_IN_CLIP(Any p0, Any p1) { return invoke<Any>(0x6961E2A4, p0, p1); }
-	static Any GET_MAX_AMMO_IN_HAND_CLIP_MP(Any p0, Any p1) { return invoke<Any>(0xE29942BF, p0, p1); }
-	static Any GET_AMMO_IN_CLIP(Any p0, Any p1, Any p2) { return invoke<Any>(0x73C100C3, p0, p1, p2); }
+	static int GET_MAX_AMMO_IN_CLIP(Ped ped, Hash weaponHash) { return invoke<int>(0x6961E2A4, ped, weaponHash); }
+	static int GET_MAX_AMMO_IN_HAND_CLIP_MP(Ped ped, int p1) { return invoke<int>(0xE29942BF, ped, p1); }
+	static BOOL GET_AMMO_IN_CLIP(Ped ped, Hash weaponHash, int* ammo) { return invoke<BOOL>(0x73C100C3, ped, weaponHash, ammo); }
 	static BOOL SET_AMMO_IN_CLIP(Ped ped, Hash weaponHash, int ammo) { return invoke<BOOL>(0xA54B0B10, ped, weaponHash, ammo); }
 	static BOOL GET_MAX_AMMO(Ped ped, Hash weaponHash, int* ammo) { return invoke<BOOL>(0x0B294796, ped, weaponHash, ammo); }
 	static Any SET_MAX_AMMO_CAP() { return invoke<Any>(0x4C898C45); } // unused

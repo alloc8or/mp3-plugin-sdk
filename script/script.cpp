@@ -6,6 +6,7 @@
 #include "script.h"
 
 #define MAX_PAINKILLERS 9
+#define MAX_AMMO 25000
 
 void main()
 {
@@ -27,7 +28,7 @@ void main()
 			if (IsKeyJustUp(VK_F8))
 			{
 				if (!WEAPON::HAS_PED_GOT_WEAPON(playerPed, WEAPON_SMG_MP5))
-					WEAPON::GIVE_WEAPON_TO_PED(playerPed, WEAPON_SMG_MP5, 9999, true);
+					WEAPON::GIVE_WEAPON_TO_PED(playerPed, WEAPON_SMG_MP5, MAX_AMMO, true);
 			}
 
 			if (IsKeyJustUp(VK_F9))
