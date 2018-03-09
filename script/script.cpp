@@ -5,6 +5,10 @@
 
 #include "script.h"
 
+// Uncomment this if you 
+// don't want to use native namespaces.
+// USING_NATIVE_NAMESPACES
+
 #define MAX_PAINKILLERS 9
 #define MAX_AMMO 25000
 
