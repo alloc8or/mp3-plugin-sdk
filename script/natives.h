@@ -326,23 +326,23 @@ namespace CAM
 	static void BULLET_CAMERA_PRELOAD_TEXT_BINK(Any p0, Any p1) { invoke<Void>(0x8CD8006E, p0, p1); }
 	static void SET_PED_BULLET_CAMERA_ON_NEXT_HIT(Ped ped) { invoke<Void>(0xF43737FB, ped); } // unused
 	static void ALLOW_BULLET_CAMERA_TO_GAMEPLAY(Any p0, Any p1) { invoke<Void>(0x2BB2C58F, p0, p1); }
-	static Any IS_BULLET_CAMERA_TO_GAMEPLAY_ALLOWED() { return invoke<Any>(0x60EBB1EB); }
-	static Any GET_PRESET_DURATION(Any p0) { return invoke<Any>(0xB61080D1, p0); }
-	static Any SET_PRESET_TEXT(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x58439F1A, p0, p1, p2, p3); }
-	static Any SET_PRESET_TEXTVIDEO() { return invoke<Any>(0x292E48B3); } // unused
-	static Any SET_PRESET_TEXT_TIMING() { return invoke<Any>(0xCA682A7E); } // unused
-	static void SET_BCAM_STR_HELPER_TRACK_PLAYER(Any p0) { invoke<Void>(0x809B977E, p0); }
-	static void SET_PORTAL_TRACK_DEATH_CAMERA(Any p0) { invoke<Void>(0x5B1065AF, p0); }
-	static void ALLOW_BULLET_CAMERA_SLOWDOWN(Any p0) { invoke<Void>(0xC6AB9205, p0); }
+	static BOOL IS_BULLET_CAMERA_TO_GAMEPLAY_ALLOWED() { return invoke<BOOL>(0x60EBB1EB); }
+	static int GET_PRESET_DURATION(const char* presetName) { return invoke<int>(0xB61080D1, presetName); }
+	static BOOL SET_PRESET_TEXT(const char* presetName, int p1, int p2, const char* p3) { return invoke<BOOL>(0x58439F1A, presetName, p1, p2, p3); }
+	static BOOL SET_PRESET_TEXTVIDEO(const char* presetName, int p1, int p2, const char* p3) { return invoke<BOOL>(0x292E48B3, presetName, p1, p2, p3); } // unused
+	static BOOL SET_PRESET_TEXT_TIMING(const char* presetName, int p1, int p2, int p3, float p4, int p5, float p6, int p7, float p8, int p9, float p10, int p11, float p12, int p13, float p14) { return invoke<BOOL>(0xCA682A7E, presetName, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14); } // unused
+	static void SET_BCAM_STR_HELPER_TRACK_PLAYER(BOOL toggle) { invoke<Void>(0x809B977E, toggle); }
+	static void SET_PORTAL_TRACK_DEATH_CAMERA(BOOL toggle) { invoke<Void>(0x5B1065AF, toggle); }
+	static void ALLOW_BULLET_CAMERA_SLOWDOWN(BOOL toggle) { invoke<Void>(0xC6AB9205, toggle); }
 	static void TERMINATE_GAME_BULLET_CAMERA() { invoke<Void>(0xEE7F2F5D); }
 	static void START_PANEL_WIPE(Any p0, Any p1) { invoke<Void>(0x45E78975, p0, p1); }
 	static void ENABLE_BULLET_CAMERA_WIPE(Any p0) { invoke<Void>(0xDCCD38E5, p0); }
-	static Any IS_BULLET_CAMERA_WIPE_ENABLED() { return invoke<Any>(0x7E5F8C2D); }
-	static Any IS_BULLET_CAMERA_WIPE_STOPPED() { return invoke<Any>(0xB271F669); }
+	static BOOL IS_BULLET_CAMERA_WIPE_ENABLED() { return invoke<BOOL>(0x7E5F8C2D); }
+	static BOOL IS_BULLET_CAMERA_WIPE_STOPPED() { return invoke<BOOL>(0xB271F669); }
 	static void RESUME_BULLET_CAMERA_WIPE() { invoke<Void>(0xACF3AD1F); }
 	static void RESUME_BULLET_CAMERA_WIPE_ON_FADEIN() { invoke<Void>(0xC038C512); }
-	static void FORCE_CUSTOM_WIPE_BULLET_CAMERA(Any p0) { invoke<Void>(0xDC58C1A2, p0); }
-	static void FORCE_QUICK_DEATH_CAMERAS(Any p0) { invoke<Void>(0x60BBBAAD, p0); }
+	static void FORCE_CUSTOM_WIPE_BULLET_CAMERA(BOOL toggle) { invoke<Void>(0xDC58C1A2, toggle); }
+	static void FORCE_QUICK_DEATH_CAMERAS(BOOL toggle) { invoke<Void>(0x60BBBAAD, toggle); }
 	static void ALLOW_BULLET_CAMERA_CHEAT(BOOL toggle) { invoke<Void>(0x3A19D0D1, toggle); }
 	static Any PLAY_KILLSTRIP_LOCAL() { return invoke<Any>(0x492BDFA1); } // unused
 	static void FREEZE_CURRENT_PANEL() { invoke<Void>(0xABE10E99); }
@@ -358,16 +358,16 @@ namespace CAM
 	static void CAMERA_CLEAR_POINT_AT_TARGET() { invoke<Void>(0x09013E7F); }
 	static Any CAMERA_IS_POINTING_AT_TARGET() { return invoke<Any>(0x6C7043F0); } // unused
 	static void CAMERA_SNAP_POINT_AT_COORD(Any p0, Any p1, Any p2) { invoke<Void>(0x8025901F, p0, p1, p2); }
-	static void CAMERA_CAN_TARGET_OBJECT(Any p0, Any p1) { invoke<Void>(0x484A10F1, p0, p1); }
-	static Any CAMERA_CAN_TARGET_VEHICLE() { return invoke<Any>(0x49845055); } // unused
-	static void CAMERA_CAN_TARGET_TIRES(Any p0) { invoke<Void>(0x13CBB1CD, p0); }
-	static void CAMERA_CAN_TARGET_PROJECTILES(Any p0) { invoke<Void>(0xA931C3F2, p0); }
-	static void CAMERA_FIRST_PERSON_TRACK_RATE(Any p0) { invoke<Void>(0xD9D54F5A, p0); }
-	static void CAMERA_AIM_OVERRIDE(Any p0) { invoke<Void>(0x8DA8FA57, p0); }
-	static void CAMERA_ENABLE_FIRST_TIME_AIM_LOCK(Any p0) { invoke<Void>(0x8F5BB594, p0); }
-	static void CAMERA_USE_HANDY_CAM(Any p0, Any p1, Any p2) { invoke<Void>(0x4AF9573A, p0, p1, p2); }
-	static void CAMERA_ENABLE_SHOULDER_MODE(Any p0) { invoke<Void>(0xD33A2B48, p0); }
-	static Any CAMERA_SETTINGS_IS_HARD_LOCK_ENABLED() { return invoke<Any>(0x1A2E23B0); }
+	static void CAMERA_CAN_TARGET_OBJECT(BOOL toggle, Object object) { invoke<Void>(0x484A10F1, toggle, object); }
+	static void CAMERA_CAN_TARGET_VEHICLE(BOOL toggle, Vehicle vehicle) { invoke<Void>(0x49845055, toggle, vehicle); } // unused
+	static void CAMERA_CAN_TARGET_TIRES(BOOL toggle) { invoke<Void>(0x13CBB1CD, toggle); }
+	static void CAMERA_CAN_TARGET_PROJECTILES(BOOL toggle) { invoke<Void>(0xA931C3F2, toggle); }
+	static void CAMERA_FIRST_PERSON_TRACK_RATE(float rate) { invoke<Void>(0xD9D54F5A, rate); }
+	static void CAMERA_AIM_OVERRIDE(BOOL toggle) { invoke<Void>(0x8DA8FA57, toggle); }
+	static void CAMERA_ENABLE_FIRST_TIME_AIM_LOCK(BOOL toggle) { invoke<Void>(0x8F5BB594, toggle); }
+	static void CAMERA_USE_HANDY_CAM(BOOL p0, float p1, BOOL p2) { invoke<Void>(0x4AF9573A, p0, p1, p2); }
+	static void CAMERA_ENABLE_SHOULDER_MODE(BOOL toggle) { invoke<Void>(0xD33A2B48, toggle); }
+	static BOOL CAMERA_SETTINGS_IS_HARD_LOCK_ENABLED() { return invoke<BOOL>(0x1A2E23B0); }
 	static void CAMERA_PLAY_ANIMATED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0x07481CC8, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void CAMERA_PLAY_ANIMATED_ATTACHED_VEHICLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8) { invoke<Void>(0x26C4B9FA, p0, p1, p2, p3, p4, p5, p6, p7, p8); }
 	static void CAMERA_PLAY_ANIMATED_ATTACHED_VEHICLE_RELATIVE(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xAE338F48, p0, p1, p2, p3, p4); }
@@ -382,18 +382,18 @@ namespace CAM
 	static Any CAMERA_ANIMATED_START_HEADING(Any p0, Any p1, Any p2) { return invoke<Any>(0xA7596ABA, p0, p1, p2); }
 	static Any CAMERA_ANIMATED_START_FOV(Any p0, Any p1, Any p2) { return invoke<Any>(0x083EC5A3, p0, p1, p2); }
 	static void CAMERA_ANIMATED_RECORD_SRL() { invoke<Void>(0x0816DFBD); }
-	static Any CAMERA_SET_HIGH_COVER_LOCK_ON_ANGLE_LIMIT() { return invoke<Any>(0x18B57920); } // unused
-	static void CAMERA_FREEZE_FRAME(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xDDFE747D, p0, p1, p2, p3); }
+	static void CAMERA_SET_HIGH_COVER_LOCK_ON_ANGLE_LIMIT(float limit) { invoke<Void>(0x18B57920, limit); } // unused
+	static void CAMERA_FREEZE_FRAME(BOOL p0, int p1, int p2, float p3) { invoke<Void>(0xDDFE747D, p0, p1, p2, p3); }
 	static BOOL IS_CAMERA_AIMING_AT_ENEMY() { return invoke<BOOL>(0x7AD6405B); }
-	static void SET_CAMERA_USE_COVER_FOR_AIMING(Any p0) { invoke<Void>(0x8B40F1EA, p0); }
-	static Any CAMERA_OVERRIDE_EFFECT_OBSTRUCTION() { return invoke<Any>(0x24770C0D); } // unused
+	static void SET_CAMERA_USE_COVER_FOR_AIMING(BOOL toggle) { invoke<Void>(0x8B40F1EA, toggle); }
+	static void CAMERA_OVERRIDE_EFFECT_OBSTRUCTION(BOOL toggle) { invoke<Void>(0x24770C0D, toggle); } // unused
 }
 
 namespace ACTIONTREE
 {
 	static void SET_ACTTEST_ENABLED(const char* name, BOOL toggle) { invoke<Void>(0xF652E42A, name, toggle); } // unused
-	static void SET_ACTIONTREE_INFO(const char* name, const char* fileName, const char* p2) { invoke<Void>(0xED7221F0, name, fileName, p2); }
-	static void GET_ACTIONTREE_INFO(const char* name, int bufferSize1, const char* buffer1, int bufferSize2, const char* buffer2) { invoke<Void>(0x302A2839, name, bufferSize1, buffer1, bufferSize2, buffer2); } // unused
+	static void SET_ACTIONTREE_INFO(const char* name, const char* fileName, const char* shortName) { invoke<Void>(0xED7221F0, name, fileName, shortName); }
+	static void GET_ACTIONTREE_INFO(const char* name, int bufferSize1, char* buffer1, int bufferSize2, char* buffer2) { invoke<Void>(0x302A2839, name, bufferSize1, buffer1, bufferSize2, buffer2); } // unused
 }
 
 namespace DEBUG
@@ -447,7 +447,7 @@ namespace DEBUG
 	static void SET_CONTENTS_OF_TEXT_WIDGET(Any p0, Any p1) { invoke<Void>(0x74E6F8F5, p0, p1); }
 	static Any GET_NETWORK_RESTART_NODE_DEBUG() { return invoke<Any>(0x9B999753); } // unused
 	static Any PRINT_MISSION_DESCRIPTION() { return invoke<Any>(0x61668A58); } // unused
-	static void GET_NAME_OF_SCRIPT_TO_AUTOMATICALLY_START(int bufferSize, const char* buffer) { invoke<Void>(0x9183C7B7, bufferSize, buffer); } // unused
+	static void GET_NAME_OF_SCRIPT_TO_AUTOMATICALLY_START(int bufferSize, char* buffer) { invoke<Void>(0x9183C7B7, bufferSize, buffer); } // unused
 	static void PRINT_MEMORY_STATS() { invoke<Void>(0xD6F9C65D); }
 	static void DISPLAYF(const char* format, int argCount, ...)
 	{
@@ -897,7 +897,7 @@ namespace GAMEPLAY
 	static void SET_SAFE_TO_KILL_PLAYER(BOOL toggle) { invoke<Void>(0x1328332A, toggle); }
 	static BOOL IS_SAFE_TO_KILL_PLAYER() { return invoke<BOOL>(0x6702E169); } // unused
 	static float GET_TIME_REMAINING() { return invoke<float>(0x85FA3578); }
-	static void GET_CURRENT_LEVEL_NAME(int bufferSize, const char* buffer) { invoke<Void>(0xD11807A3, bufferSize, buffer); } // unused
+	static void GET_CURRENT_LEVEL_NAME(int bufferSize, char* buffer) { invoke<Void>(0xD11807A3, bufferSize, buffer); } // unused
 	static BOOL _0xA328A44A() { return invoke<BOOL>(0xA328A44A); } // unused
 	static void _0xE36E2536(BOOL toggle) { invoke<Void>(0xE36E2536, toggle); } // unused
 	static void _0x8A52A2C0(Ped ped, int p1, Any* p2) { invoke<Void>(0x8A52A2C0, ped, p1, p2); } // unused
@@ -908,7 +908,7 @@ namespace GAMEPLAY
 	static int _0x8F052EB9() { return invoke<int>(0x8F052EB9); } // unused
 	static int _0xE93ED57B() { return invoke<int>(0xE93ED57B); } // unused
 	static int _0x1ED65D54(Hash hash) { return invoke<int>(0x1ED65D54, hash); } // unused
-	static void _0xF8EE133C(int bufferSize, const char* buffer, Hash hash) { invoke<Void>(0xF8EE133C, bufferSize, buffer); } // unused
+	static void _0xF8EE133C(int bufferSize, char* buffer, Hash hash) { invoke<Void>(0xF8EE133C, bufferSize, buffer); } // unused
 	static int _GET_ARCADE_CHECKPOINT() { return invoke<int>(0x8F64EDF4); } // unused
 	static void _0x10FBD916(Any p0, const char* p1, Any p2, BOOL p3) { invoke<Void>(0x10FBD916, p0, p1, p2, p3); } // unused
 	static void _0x0C63AC67(Any p0, Any p1, const char* p2, Any p3, BOOL p4) { invoke<Void>(0x0C63AC67, p0, p1, p2, p3, p4); } // unused
@@ -1008,8 +1008,8 @@ namespace GAMEPLAY
 	static float GET_STRING_WIDTH(const char* textLabel) { return invoke<float>(0xBABDF3D6, textLabel); } // unused
 	static float GET_STRING_WIDTH_WITH_NUMBER(const char* textLabel, int number) { return invoke<float>(0xEAEB477D, textLabel, number); } // unused
 	static float GET_STRING_WIDTH_WITH_STRING(const char* textLabel, const char* string) { return invoke<float>(0x048A2E6C, textLabel, string); } // unused
-	static void GET_LOCALISED_STRING(int bufferSize, const char* buffer, const char* textLabel) { invoke<Void>(0xEDB3726D, bufferSize, buffer, textLabel); }
-	static void SPLIT_LOCALISED_STRING(const char* textLabel, int bufferSize1, const char* buffer1, int bufferSize2, const char* buffer2, int bufferSize3, const char* buffer3, int bufferSize4, const char* buffer4) { invoke<Void>(0xE6102DD1, textLabel, bufferSize1, buffer1, bufferSize2, buffer2, bufferSize3, buffer3, bufferSize4, buffer4); }
+	static void GET_LOCALISED_STRING(int bufferSize, char* buffer, const char* textLabel) { invoke<Void>(0xEDB3726D, bufferSize, buffer, textLabel); }
+	static void SPLIT_LOCALISED_STRING(const char* textLabel, int bufferSize1, char* buffer1, int bufferSize2, char* buffer2, int bufferSize3, char* buffer3, int bufferSize4, char* buffer4) { invoke<Void>(0xE6102DD1, textLabel, bufferSize1, buffer1, bufferSize2, buffer2, bufferSize3, buffer3, bufferSize4, buffer4); }
 	static BOOL ARE_STRINGS_EQUAL(const char* str1, const char* str2) { return invoke<BOOL>(0x877C0BC5, str1, str2); }
 	static int ABSI(int value) { return invoke<int>(0xB44677C5); }
 	static float ABSF(float value) { return invoke<float>(0xAF6F6E0B); }
@@ -1047,7 +1047,7 @@ namespace GAMEPLAY
 	static BOOL IS_INTERIOR_SCENE() { return invoke<BOOL>(0x55226C13); } // unused
 	static void POPULATE_NOW() { invoke<Void>(0x72C20700); } // unused
 	static int GET_INDEX_OF_CURRENT_LEVEL() { return invoke<int>(0x6F203C6E); }
-	static BOOL GET_NAME_OF_CURRENT_LEVEL(int bufferSize, const char* buffer) { return invoke<BOOL>(0x4EFC439F, bufferSize, buffer); }
+	static BOOL GET_NAME_OF_CURRENT_LEVEL(int bufferSize, char* buffer) { return invoke<BOOL>(0x4EFC439F, bufferSize, buffer); }
 	static void SWITCH_TO_LEVEL(int index) { invoke<Void>(0xFA085695, index); }
 	static void SWITCH_TO_LEVEL_NAME(const char* name) { invoke<Void>(0xB0F99718, name); }
 	static void RETURN_TO_TITLESCREEN(const char* p0) { invoke<Void>(0xB52B5F2D, p0); }
@@ -1085,7 +1085,7 @@ namespace GAMEPLAY
 	static BOOL IS_PC_BUILD() { return invoke<BOOL>(0xE6A62D57); }
 	static Vector3 VECTOR_ROTATE_AXIS(float x, float y, float z, float rotate, const char* axis) { return invoke<Vector3>(0x649E57A6, x, y, z, rotate, axis); }
 	static void RESET_LAST_MAN_STANDING() { invoke<Void>(0x3F47FAEA); }
-	static void STRING_FORMAT(int bufferSize, const char* buffer, const char* formatOrTextLabel, int argCount, ...)
+	static void STRING_FORMAT(int bufferSize, char* buffer, const char* formatOrTextLabel, int argCount, ...)
 	{
 		NATIVE_VARARGS_BEGIN(argCount);
 		nativeInit(0x1EBBD64A);
@@ -1099,7 +1099,7 @@ namespace GAMEPLAY
 		NATIVE_VARARGS_END();
 		nativeCall();
 	}
-	static void STRING_FORMAT_HASH(int bufferSize, const char* buffer, Hash textLabelHash, int argCount, ...)
+	static void STRING_FORMAT_HASH(int bufferSize, char* buffer, Hash textLabelHash, int argCount, ...)
 	{
 		NATIVE_VARARGS_BEGIN(argCount);
 		nativeInit(0xA1091C07);
@@ -1113,7 +1113,7 @@ namespace GAMEPLAY
 		NATIVE_VARARGS_END();
 		nativeCall();
 	}
-	static void STRING_APPEND(int bufferSize, const char* buffer, const char* formatOrTextLabel, int argCount, ...)
+	static void STRING_APPEND(int bufferSize, char* buffer, const char* formatOrTextLabel, int argCount, ...)
 	{
 		NATIVE_VARARGS_BEGIN(argCount);
 		nativeInit(0xD00EC3B6);
@@ -1478,7 +1478,7 @@ namespace PED
 	static void SET_PED_CAN_REMAIN_ON_BOAT_AFTER_MISSION_ENDS(Ped ped, BOOL toggle) { invoke<Void>(0x3B9C6330, ped, toggle); } // unused
 	static BOOL IS_PED_TOUCHING_PED(Ped ped, Ped ped2) { return invoke<BOOL>(0x12C5484A, ped, ped2); }
 	static void SET_PED_ANIM_GROUP(Ped ped, const char* name) { invoke<Void>(0x55617E2A, ped, name); } // unused
-	static void GET_PED_ANIM_GROUP(int bufferSize, const char* buffer, Ped ped) { invoke<Void>(0xFAF5A3C5, bufferSize, buffer, ped); } // unused
+	static void GET_PED_ANIM_GROUP(int bufferSize, char* buffer, Ped ped) { invoke<Void>(0xFAF5A3C5, bufferSize, buffer, ped); } // unused
 	static void SET_PED_USES_DEAFULT_ANIM_GROUP_WHEN_FLEEING(Ped ped, BOOL toggle) { invoke<Void>(0xF604C9E2, ped, toggle); } // unused
 	static void SET_PED_GESTURE_GROUP(Ped ped, const char* name) { invoke<Void>(0x170DA109, ped, name); } // unused
 	static void COPY_ANIMATIONS(Ped ped, Ped ped2, float p2) { invoke<Void>(0x2ED971A5, ped, ped2, p2); } // unused
@@ -1940,7 +1940,7 @@ namespace PLAYER
 	static int GET_PLAYER_TEAM(Player player) { return invoke<int>(0x9873E404, player); }
 	static void SET_PLAYER_TEAM(Player player, int team) { invoke<Void>(0x725ADCF2, player, team); }
 	static int GET_NUMBER_OF_PLAYERS_IN_TEAM(int team) { return invoke<int>(0x06435F71, team); }
-	static void GET_PLAYER_NAME(int bufferSize, const char* buffer, Player player, BOOL withGangTag) { invoke<Void>(0x406B4B20, bufferSize, buffer, player, withGangTag); }
+	static void GET_PLAYER_NAME(int bufferSize, char* buffer, Player player, BOOL withGangTag) { invoke<Void>(0x406B4B20, bufferSize, buffer, player, withGangTag); }
 	static void SET_PLAYER_INFINTE_STAMINA(Player player, BOOL toggle) { invoke<Void>(0x44466C42, player, toggle); }
 	static void ADD_PLAYER_SCORE(Player player, int amount) { invoke<Void>(0x692414AA, player, amount); } // unused
 	static BOOL IS_PLAYER_SCORE_GREATER(Player player, int score) { return invoke<BOOL>(0xFA624B66, player, score); } // unused
@@ -2275,7 +2275,7 @@ namespace AI
 	static void ADD_FOLLOW_NAVMESH_TO_PHONE_TASK(Ped ped, float x, float y, float z) { invoke<Void>(0x00D7303F, ped, x, y, z); } // unused
 	static BOOL GET_MOBILE_PHONE_TASK_SUB_TASK(Ped ped, int* subtask) { return invoke<BOOL>(0xB47C4CF0, ped, subtask); } // unused
 	static void TASK_WARP_PED_INTO_VEHICLE(Ped ped, Vehicle vehicle, int seatIndex) { invoke<Void>(0x65D4A35D, ped, vehicle, seatIndex); } // unused
-	static void TASK_SHOOT_AT_PED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0xE878CC20, p0, p1, p2, p3, p4, p5, p6); }
+	static void TASK_SHOOT_AT_PED(Ped ped, Ped targetPed, int duration, Hash firingPatternHash, BOOL p4, BOOL p5, BOOL p6) { invoke<Void>(0xE878CC20, ped, targetPed, duration, firingPatternHash, p4, p5, p6); }
 	static void TASK_SHOOT_AT_VEHICLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0x009D5555, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static void TASK_AIM_GUN_AT_VEHICLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x217E69A2, p0, p1, p2, p3, p4, p5, p6, p7); }
 	static void TASK_GOTO_VEHICLE(Ped ped, Vehicle vehicle, int p2, float p3) { invoke<Void>(0x08DE489D, ped, vehicle, p2, p3); } // unused
@@ -2645,7 +2645,7 @@ namespace VEHICLE
 	static Any SET_POLICE_FOCUS_WILL_TRACK_VEHICLE() { return invoke<Any>(0x5690F6C3); } // unused
 	static Any START_VEHICLE_HORN() { return invoke<Any>(0x0DF5ADB3); } // unused
 	static Any SET_VEHICLE_HAS_STRONG_AXLES() { return invoke<Any>(0x0D1CBC65); } // unused
-	static void GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(int bufferSize, const char* buffer, Hash modelHash) { invoke<Void>(0xEC86DF39, bufferSize, buffer, modelHash); } // unused
+	static void GET_DISPLAY_NAME_FROM_VEHICLE_MODEL(int bufferSize, char* buffer, Hash modelHash) { invoke<Void>(0xEC86DF39, bufferSize, buffer, modelHash); } // unused
 	static Any GET_VEHICLE_DEFORMATION_AT_POS() { return invoke<Any>(0xABF02075); } // unused
 	static void ADD_VEHICLE_TO_MISSION_DELETION_LIST(Vehicle vehicle) { invoke<Void>(0xF6E45147, vehicle); } // unused
 	static Any SET_VEHICLE_ALPHA() { return invoke<Any>(0x5D4A2BC2); } // unused
@@ -2913,7 +2913,7 @@ namespace SCRIPT
 	static BOOL IS_THREAD_ACTIVE(int threadId) { return invoke<BOOL>(0x78D7A5A0, threadId); }
 	static BOOL IS_THIS_THREAD_ISOLATED(int threadId) { return invoke<BOOL>(0x79C9D9AF, threadId); }
 	static BOOL IS_THIS_THREAD_CONNECTED(int threadId) { return invoke<BOOL>(0x5DE08B39, threadId); }
-	static void GET_THIS_THREAD_FRIENDLY_NAME(int bufferSize, const char* buffer) { invoke<Void>(0x277B10EE, bufferSize, buffer); } // unused
+	static void GET_THIS_THREAD_FRIENDLY_NAME(int bufferSize, char* buffer) { invoke<Void>(0x277B10EE, bufferSize, buffer); } // unused
 	static int GET_ID_OF_THIS_THREAD() { return invoke<int>(0xDE524830); }
 	static void TERMINATE_THIS_THREAD() { invoke<Void>(0x3CD9CBB7); }
 	static int GET_NUMBER_OF_THREADS_RUNNING_THIS_SCRIPT(const char* scriptName) { return invoke<int>(0x1E941253, scriptName); }
@@ -3075,7 +3075,7 @@ namespace STATS
 	static void GET_BG_TEXTURE_FOR_BG_SCRIPT(Any p0, Any* p1, Any* p2) { invoke<Void>(0x943C6E08, p0, p1, p2); }
 	static Any GET_UI_NAME_FOR_BG_SCRIPT(Any p0) { return invoke<Any>(0x6873C76D, p0); }
 	static Any GET_UI_DESCRIPTION_FOR_BG_SCRIPT(Any p0) { return invoke<Any>(0xDAFCCF7F, p0); }
-	static void DEBUG_GET_BG_SCRIPT_NAME(int index, int bufferSize, const char* buffer) { invoke<Void>(0x03882657, index, bufferSize, buffer); }
+	static void DEBUG_GET_BG_SCRIPT_NAME(int index, int bufferSize, char* buffer) { invoke<Void>(0x03882657, index, bufferSize, buffer); }
 	static int GET_GRIND_PROGRESS(int grindId) { return invoke<int>(0x455FF144, grindId); }
 	static BOOL SET_GRIND_PROGRESS(int grindId, int progress) { return invoke<BOOL>(0xC97141EE, grindId, progress); }
 	static int GET_GRIND_GOAL(int grindId) { return invoke<int>(0xCB12EA00, grindId); } // unused
@@ -3087,7 +3087,7 @@ namespace STATS
 	static BOOL GET_CHALLENGE_FAILED_STATE(int challengeId) { return invoke<BOOL>(0x8BD57283, challengeId); } // unused
 	static BOOL SET_CHALLENGE_FAILED_STATE(int challengeId, BOOL state) { return invoke<BOOL>(0x6DDDD8C3, challengeId, state); }
 	static BOOL DID_PLAYER_QUIT_LEVEL(Any p0) { return invoke<BOOL>(0x28041AC7, p0); }
-	static BOOL GET_BG_SCRIPT_LEADERBOARD_NAME(int index, int bufferSize, const char* buffer) { return invoke<BOOL>(0x2694F2B0, index, bufferSize, buffer); }
+	static BOOL GET_BG_SCRIPT_LEADERBOARD_NAME(int index, int bufferSize, char* buffer) { return invoke<BOOL>(0x2694F2B0, index, bufferSize, buffer); }
 	static BOOL HAS_ACHIEVEMENT_HASH(int p0) { return invoke<BOOL>(0xCE0909E9, p0); }
 	static Hash GET_ACHIEVEMENT_HASH(int p0) { return invoke<Hash>(0x902D558D, p0); }
 	static BOOL DOES_LAUNCH_PARAM_EXIST(int p0, const char* paramName) { return invoke<BOOL>(0x4EE8FFA2, p0, paramName); }
@@ -3112,7 +3112,7 @@ namespace STREAMING
 	static void SET_INTERIOR_FORCE_INSTANTIATION(Interior interior, BOOL toggle) { invoke<Void>(0x449FEFDF, interior, toggle); }
 	static Request_s REQUEST_MODEL(Hash modelHash) { return invoke<Request_s>(0xFFF1B500, modelHash); }
 	static BOOL HAS_MODEL_LOADED(Hash modelHash) { return invoke<BOOL>(0x62BFDB37, modelHash); }
-	static void GET_MODEL_NAME(int bufferSize, const char* buffer, Hash modelHash) { invoke<Void>(0xCBDB1D12, bufferSize, buffer, modelHash); } // unused
+	static void GET_MODEL_NAME(int bufferSize, char* buffer, Hash modelHash) { invoke<Void>(0xCBDB1D12, bufferSize, buffer, modelHash); } // unused
 	static void REQUEST_WEAPON(Hash weaponHash) { invoke<Void>(0xA9D5ADEC, weaponHash); }
 	static BOOL HAS_WEAPON_LOADED(Hash weaponHash) { return invoke<BOOL>(0x4132E42F, weaponHash); }
 	static void REQUEST_INTERIOR_MODELS(Hash modelHash, const char* p1) { invoke<Void>(0x0514857A, modelHash, p1); } // unused
@@ -3207,35 +3207,35 @@ namespace PATHFIND
 
 namespace WEAPON
 {
-	static void GET_WEAPON_NAME(int bufferSize, const char* buffer, Hash weaponHash) { invoke<Void>(0x0BE7A3F5, bufferSize, buffer, weaponHash); }
-	static Any GET_WEAPON_HUD_TEXTURE(Hash weaponHash) { return invoke<Any>(0x9D6061F5, weaponHash); }
+	static void GET_WEAPON_NAME(int bufferSize, char* buffer, Hash weaponHash) { invoke<Void>(0x0BE7A3F5, bufferSize, buffer, weaponHash); }
+	static Hash GET_WEAPON_HUD_TEXTURE(Hash weaponHash) { return invoke<Hash>(0x9D6061F5, weaponHash); }
 	static int GET_WEAPONTYPE_AMMO(Hash weaponHash) { return invoke<int>(0x687CABD1, weaponHash); }
 	static int GET_WEAPON_GUNTYPE(Hash weaponHash) { return invoke<int>(0x43AF022D, weaponHash); }
 	static BOOL IS_THROWN_WEAPON(Hash weaponHash) { return invoke<BOOL>(0x48EF964A, weaponHash); }
-	static void SPAWN_GRENADE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { invoke<Void>(0x34E8E337, p0, p1, p2, p3, p4, p5); }
+	static void SPAWN_GRENADE(Ped ped, Hash p1, float p2, float p3, float p4, float p5) { invoke<Void>(0x34E8E337, ped, p1, p2, p3, p4, p5); }
 	static Hash GET_WEAPONTYPE_MODEL(Hash weaponHash) { return invoke<Hash>(0x44E1C269, weaponHash); } // unused
 	static void SET_CURRENT_PED_WEAPON(Ped ped, Hash weaponHash, BOOL equipNow) { invoke<Void>(0xB8278882, ped, weaponHash, equipNow); } // unused
 	static BOOL GET_CURRENT_PED_WEAPON(Ped ped, Hash* weaponHash, int handType) { return invoke<BOOL>(0xB0237302, ped, weaponHash, handType); } // unused
 	static BOOL IS_PED_ARMED(Ped ped) { return invoke<BOOL>(0x0BFC892C, ped); }
-	static void SELECT_WEAPON_TO_HAND(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0xEF918984, p0, p1, p2, p3); }
+	static void SELECT_WEAPON_TO_HAND(Ped ped, Weapon weapon, int handType, BOOL p3) { invoke<Void>(0xEF918984, ped, weapon, handType, p3); }
 	static Weapon GET_WEAPON_FROM_HAND(Ped ped, int handType, BOOL p2) { return invoke<Weapon>(0xF5A9F0F9, ped, handType, p2); }
 	static Weapon GET_WEAPON_FROM_HOLSTER(Ped ped, int holsterType) { return invoke<Weapon>(0x4F1AB270, ped, holsterType); }
-	static Any GET_DOES_WEAPON_EXIST(Any p0) { return invoke<Any>(0x066A14D7, p0); }
-	static Any GET_WEAPON_AMMO(Any p0) { return invoke<Any>(0x2AFE4788, p0); }
-	static void SET_WEAPON_AMMO(Any p0, Any p1) { invoke<Void>(0x3A3DB7F1, p0, p1); }
-	static Any GET_WEAPON_AMMO_IN_CLIP(Any p0) { return invoke<Any>(0x09E9F10F, p0); }
-	static void SET_WEAPON_AMMO_IN_CLIP(Any p0, Any p1) { invoke<Void>(0xA5F4270F, p0, p1); }
+	static BOOL GET_DOES_WEAPON_EXIST(Weapon weapon) { return invoke<BOOL>(0x066A14D7, weapon); }
+	static int GET_WEAPON_AMMO(Weapon weapon) { return invoke<int>(0x2AFE4788, weapon); }
+	static void SET_WEAPON_AMMO(Weapon weapon, int ammo) { invoke<Void>(0x3A3DB7F1, weapon, ammo); }
+	static int GET_WEAPON_AMMO_IN_CLIP(Weapon weapon) { return invoke<int>(0x09E9F10F, weapon); }
+	static void SET_WEAPON_AMMO_IN_CLIP(Weapon weapon, int ammo) { invoke<Void>(0xA5F4270F, weapon, ammo); }
 	static void SET_PED_CONSUMING_AMMO(Ped ped, BOOL toggle) { invoke<Void>(0xECFC30AE, ped, toggle); }
 	static int GET_WEAPON_TYPE(Weapon weapon) { return invoke<int>(0x706A4B6F, weapon); }
 	static BOOL HAS_PED_GOT_WEAPON(Ped ped, Hash weaponHash) { return invoke<BOOL>(0x43D2FA82, ped, weaponHash); }
-	static Any HAS_PED_GOT_SPECIFIC_WEAPON(Any p0, Any p1) { return invoke<Any>(0x8AF064CF, p0, p1); }
+	static BOOL HAS_PED_GOT_SPECIFIC_WEAPON(Ped ped, Hash weaponHash) { return invoke<BOOL>(0x8AF064CF, ped, weaponHash); }
 	static int GET_AMMO_IN_PED_WEAPON(Ped ped, Hash weaponHash) { return invoke<int>(0x0C755733, ped, weaponHash); }
-	static void ADD_AMMO_TO_PED(Any p0, Any p1, Any p2, Any p3) { invoke<Void>(0x7F0580C7, p0, p1, p2, p3); }
+	static void ADD_AMMO_TO_PED(Ped ped, Hash weaponHash, int ammo, BOOL p3) { invoke<Void>(0x7F0580C7, ped, weaponHash, ammo, p3); }
 	static void SET_PED_AMMO(Ped ped, Hash weaponHash, int ammo) { invoke<Void>(0xBF90DF1A, ped, weaponHash, ammo); }
-	static void SET_WEAPON_SLOT(Any p0, Any p1, Any p2) { invoke<Void>(0x016DBCD1, p0, p1, p2); }
+	static void SET_WEAPON_SLOT(Ped ped, Weapon weapon, int holsterType) { invoke<Void>(0x016DBCD1, ped, weapon, holsterType); }
 	static Weapon GET_WEAPON_FROM_SLOT(Ped ped, int holsterType) { return invoke<Weapon>(0x363C0973, ped, holsterType); }
-	static Any GIVE_WEAPON_TO_PED_HAND(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xD2103032, p0, p1, p2, p3); }
-	static Any GIVE_WEAPON_TO_PED_HOLSTER(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x865E839A, p0, p1, p2, p3); }
+	static Weapon GIVE_WEAPON_TO_PED_HAND(Ped ped, Hash weaponHash, int ammo, int handType) { return invoke<Weapon>(0xD2103032, ped, weaponHash, ammo, handType); }
+	static Weapon GIVE_WEAPON_TO_PED_HOLSTER(Ped ped, Hash weaponHash, int ammo, int holsterType) { return invoke<Weapon>(0x865E839A, ped, weaponHash, ammo, holsterType); }
 	static Weapon GIVE_WEAPON_TO_PED(Ped ped, Hash weaponHash, int ammo, BOOL equipNow) { return invoke<Weapon>(0xC4D88A85, ped, weaponHash, ammo, equipNow); } // unused
 	static Weapon GIVE_DELAYED_WEAPON_TO_PED(Ped ped, Hash weaponHash, int ammo, BOOL equipNow) { return invoke<Weapon>(0x5868D20D, ped, weaponHash, ammo, equipNow); } // unused
 	static void REMOVE_ALL_PED_WEAPONS(Ped ped) { invoke<Void>(0xA44CE817, ped); }
@@ -3260,11 +3260,11 @@ namespace WEAPON
 	static void SET_PED_CURRENT_WEAPON_VISIBLE(Ped ped, BOOL toggle) { invoke<Void>(0x00BECD77, ped, toggle); }
 	static void SET_PED_DROPS_WEAPONS_WHEN_DEAD(Ped ped, BOOL toggle) { invoke<Void>(0x8A444056, ped, toggle); }
 	static BOOL HAS_PED_BEEN_DAMAGED_BY_WEAPON(Ped ped, Hash weaponHash) { return invoke<BOOL>(0xCDFBBCC6, ped, weaponHash); }
-	static Any GET_PED_DAMAGE_WEAPON_TYPE() { return invoke<Any>(0x93FBC5C1); } // unused
-	static Any CLEAR_PED_LAST_WEAPON_DAMAGE() { return invoke<Any>(0x52C68832); } // unused
-	static Any PED_HAS_VALID_THROW_TRAJECTORY_TO_POS() { return invoke<Any>(0xBF561175); } // unused
+	static Hash GET_PED_DAMAGE_WEAPON_TYPE(Ped ped) { return invoke<Hash>(0x93FBC5C1, ped); } // unused
+	static void CLEAR_PED_LAST_WEAPON_DAMAGE(Ped ped) { invoke<Void>(0x52C68832, ped); } // unused
+	static BOOL PED_HAS_VALID_THROW_TRAJECTORY_TO_POS(Ped ped, Vector3* pos) { return invoke<BOOL>(0xBF561175, ped, pos); } // unused
 	static BOOL HAS_VEHICLE_BEEN_DAMAGED_BY_WEAPON(Vehicle vehicle, Hash weaponHash) { return invoke<BOOL>(0xB14B7C18, vehicle, weaponHash); } // unused
-	static Any CLEAR_VEHICLE_LAST_WEAPON_DAMAGE() { return invoke<Any>(0xE59FA6AF); } // unused
+	static void CLEAR_VEHICLE_LAST_WEAPON_DAMAGE(Vehicle vehicle) { invoke<Void>(0xE59FA6AF, vehicle); } // unused
 	static Weapon SET_PED_DROPS_WEAPON(Ped ped, Weapon weapon) { return invoke<Weapon>(0x3D3329FA, ped, weapon); }
 	static int GET_MAX_AMMO_IN_CLIP(Ped ped, Hash weaponHash) { return invoke<int>(0x6961E2A4, ped, weaponHash); }
 	static int GET_MAX_AMMO_IN_HAND_CLIP_MP(Ped ped, int p1) { return invoke<int>(0xE29942BF, ped, p1); }
@@ -3285,17 +3285,17 @@ namespace WEAPON
 	static BOOL HAS_VEHICLE_GOT_PROJECTILE_ATTACHED(Ped ped, Vehicle vehicle, Hash projectileHash) { return invoke<BOOL>(0xA57E2E80, ped, vehicle, projectileHash); } // unused
 	static void SET_SHELL_LOD_DIST_ENTITY(float value) { invoke<Void>(0xCE6C2A4E, value); } // unused
 	static void SET_SHELL_LOD_DIST_MESHFX(float value) { invoke<Void>(0xA17BA731, value); } // unused
-	static void ATTACH_WEAPON_TO_VEHICLE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { invoke<Void>(0x0A4A9A08, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void ATTACH_WEAPON_TO_VEHICLE(Hash weaponHash, Vehicle vehicle, int p2, float p3, float p4, float p5, float p6, float p7) { invoke<Void>(0x0A4A9A08, weaponHash, vehicle, p2, p3, p4, p5, p6, p7); }
 	static void REMOVE_ATTACHED_WEAPONS_FROM_VEHICLE(Vehicle vehicle) { invoke<Void>(0xECB94CFD, vehicle); }
 	static void OVERRIDE_WEAPON_VELOCITY(Hash weaponHash, float velocity) { invoke<Void>(0x386F64C0, weaponHash, velocity); } // unused
 	static void SET_BULLET_VELOCITY_MODIFIER(Ped ped, float velocity) { invoke<Void>(0x4A55C2DF, ped, velocity); }
-	static void ADD_SCRIPTED_WEAPON_MODIFIER(Any p0, Any p1) { invoke<Void>(0xDC9BD147, p0, p1); }
-	static void REMOVE_SCRIPTED_WEAPON_MODIFIER(Any p0, Any p1) { invoke<Void>(0x7E83BE00, p0, p1); }
-	static void REMOVE_ALL_SCRIPTED_WEAPON_MODIFIER(Any p0) { invoke<Void>(0xA59AF348, p0); }
-	static Any HAS_SHOT_BEEN_FIRED_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5) { return invoke<Any>(0xD08B8C7A, p0, p1, p2, p3, p4, p5); }
-	static Any HAS_SOMETHING_EXPLODED_IN_AREA(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x8D098F9F, p0, p1, p2, p3); }
-	static Any HAS_BULLET_IMPACTED_IN_AREA(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x902BC7D9, p0, p1, p2, p3, p4); }
-	static Any GET_BULLET_IMPACT_AREA(Any p0, Any p1, Any p2, Any p3, Any p4) { return invoke<Any>(0x4AB5B015, p0, p1, p2, p3, p4); }
+	static void ADD_SCRIPTED_WEAPON_MODIFIER(Ped ped, Any p1) { invoke<Void>(0xDC9BD147, ped, p1); }
+	static void REMOVE_SCRIPTED_WEAPON_MODIFIER(Ped ped, Any p1) { invoke<Void>(0x7E83BE00, ped, p1); }
+	static void REMOVE_ALL_SCRIPTED_WEAPON_MODIFIER(Ped ped) { invoke<Void>(0xA59AF348, ped); }
+	static BOOL HAS_SHOT_BEEN_FIRED_IN_AREA(float x, float y, float z, float radius, BOOL p4, Ped* outPed) { return invoke<BOOL>(0xD08B8C7A, x, y, z, radius, p4, outPed); }
+	static BOOL HAS_SOMETHING_EXPLODED_IN_AREA(float x, float y, float z, float radius) { return invoke<BOOL>(0x8D098F9F, x, y, z, radius); }
+	static BOOL HAS_BULLET_IMPACTED_IN_AREA(float x, float y, float z, float radius, Ped* outPed) { return invoke<BOOL>(0x902BC7D9, x, y, z, radius, outPed); }
+	static Vector3 GET_BULLET_IMPACT_AREA(float x, float y, float z, float radius, Ped* outPed) { return invoke<Vector3>(0x4AB5B015, x, y, z, radius, outPed); }
 	static void SET_ENABLE_BULLET_IMPACT_WATER(BOOL toggle) { invoke<Void>(0x300D6EF7, toggle); }
 	static BOOL THROW_MOLOTOV(Ped ped, float p1, float p2, float p3) { return invoke<BOOL>(0x86770AD0, ped, p1, p2, p3); } // unused
 	static void TOGGLE_TRACER(BOOL toggle) { invoke<Void>(0xA4D5C061, toggle); } // unused
@@ -3330,8 +3330,8 @@ namespace ZONE
 {
 	static void SET_ZONE_POPULATION_TYPE(const char* zoneName, int type) { invoke<Void>(0xFC30948B, zoneName, type); } // unused
 	static void SET_ZONE_SCUMMINESS(const char* zoneName, int scumminess) { invoke<Void>(0x6E35CF9A, zoneName, scumminess); } // unused
-	static void GET_NAME_OF_ZONE(int bufferSize, const char* buffer, float x, float y, float z) { invoke<Void>(0x7875CE91, bufferSize, buffer, x, y, z); } // unused
-	static void GET_NAME_OF_INFO_ZONE(int bufferSize, const char* buffer, float x, float y, float z) { invoke<Void>(0xA8CB8BF6, bufferSize, buffer, x, y, z); } // unused
+	static void GET_NAME_OF_ZONE(int bufferSize, char* buffer, float x, float y, float z) { invoke<Void>(0x7875CE91, bufferSize, buffer, x, y, z); } // unused
+	static void GET_NAME_OF_INFO_ZONE(int bufferSize, char* buffer, float x, float y, float z) { invoke<Void>(0xA8CB8BF6, bufferSize, buffer, x, y, z); } // unused
 	static void SET_ZONE_COPS_ACTIVE(const char* zoneName, BOOL toggle) { invoke<Void>(0xD604096C, zoneName, toggle); } // unused
 	static int GET_MAP_AREA_FROM_COORDS(float x, float y, float z) { return invoke<int>(0xC7191B29, x, y, z); } // unused
 	static void GET_PRIMARY_POPULATION_ZONE_GROUP(int* p0, int* p1) { invoke<Void>(0xBBD63009, p0, p1); } // unused
@@ -3340,7 +3340,7 @@ namespace ZONE
 namespace GRAPHICS
 {
 	static void SET_DEBUG_LINES_AND_SPHERES_DRAWING_ACTIVE(BOOL active) { invoke<Void>(0x1418CA37, active); }
-	static void DRAW_LINE(float x1, float y1, float z1, float x2, float y2, float z2, int red, int green, int blue, int alpha) { invoke<Void>(0xB3426BCC, x1, y1, z1, x2, y2, z2, red, green, blue, alpha); } // unused
+	static Any DRAW_LINE() { invoke<Void>(0xB3426BCC); } // unused
 	static void DRAW_DEBUG_LINE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9) { invoke<Void>(0xABF783AB, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9); }
 	static Any DRAW_DEBUG_LINE_WITH_TWO_COLOURS() { return invoke<Any>(0xE8BFF632); } // unused
 	static void DRAW_DEBUG_POLY(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { invoke<Void>(0x4213626F, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
@@ -3387,7 +3387,7 @@ namespace GRAPHICS
 	static void DELETE_CHECKPOINT(ScrHandle checkpoint) { invoke<Void>(0xB66CF3CA, checkpoint); } // unused
 	static Any DRAW_CHECKPOINT() { return invoke<Any>(0x1B58B5C7); } // unused
 	static Any DRAW_CHECKPOINT_WITH_ALPHA() { return invoke<Any>(0xCDC4B816); } // unused
-	static Any _0x891C7BBB() { return invoke<Any>(0x891C7BBB); } // unused
+	static BOOL _0x891C7BBB() { return invoke<BOOL>(0x891C7BBB); } // unused
 	static ScrHandle LOAD_TEXTURE_DICT(const char* dictName) { return invoke<ScrHandle>(0xAD3C963A, dictName); } // unused
 	static void REMOVE_TEXTURE_DICT(ScrHandle dict) { invoke<Void>(0x098F30A1, dict); } // unused
 	static ScrHandle GET_GAME_TEXTURE_DICT(const char* dictName) { return invoke<ScrHandle>(0x682D7B70, dictName); } // unused
@@ -3513,10 +3513,10 @@ namespace GRAPHICS
 
 namespace NET
 {
-	static BOOL NET_GET_GAMER_NAME_WITH_GANG_TAG(Player player, int bufferSize, const char* buffer) { return invoke<BOOL>(0x10AB1606, player, bufferSize, buffer); } // unused
-	static BOOL NET_GET_PLAYER_GANG_TAG_UI(Player player, int bufferSize, const char* buffer) { return invoke<BOOL>(0xF2008295, player, bufferSize, buffer); }
-	static BOOL NET_GET_PLAYER_GANG_TAG(Player player, int bufferSize, const char* buffer) { return invoke<BOOL>(0x4F64907A, player, bufferSize, buffer); }
-	static BOOL NET_GET_PLAYER_GANG_NAME(Player player, int bufferSize, const char* buffer) { return invoke<BOOL>(0x0A4BF53A, player, bufferSize, buffer); } // unused
+	static BOOL NET_GET_GAMER_NAME_WITH_GANG_TAG(Player player, int bufferSize, char* buffer) { return invoke<BOOL>(0x10AB1606, player, bufferSize, buffer); } // unused
+	static BOOL NET_GET_PLAYER_GANG_TAG_UI(Player player, int bufferSize, char* buffer) { return invoke<BOOL>(0xF2008295, player, bufferSize, buffer); }
+	static BOOL NET_GET_PLAYER_GANG_TAG(Player player, int bufferSize, char* buffer) { return invoke<BOOL>(0x4F64907A, player, bufferSize, buffer); }
+	static BOOL NET_GET_PLAYER_GANG_NAME(Player player, int bufferSize, char* buffer) { return invoke<BOOL>(0x0A4BF53A, player, bufferSize, buffer); } // unused
 	static int NET_GET_PLAYER_GANG_ID(Player player) { return invoke<int>(0xBB7E7FFA, player); }
 	static BOOL NET_IS_GANG_INFO_VALID(Player player) { return invoke<BOOL>(0x6D648816, player); } // unused
 	static int NET_GET_PLAYER_GANG_RANK(Player player) { return invoke<int>(0xD40B452C, player); } // unused
@@ -3577,7 +3577,7 @@ namespace CUTSCENE
 	static void SET_PRE_CUTSCENE_WEAPON_NO_LONGER_NEEDED(Weapon* weapon) { invoke<Void>(0x4F144C0B, weapon); } // unused
 	static void START_CUTSCENE_CAPTURE(const char* cutsceneName) { invoke<Void>(0x5B705AC1, cutsceneName); }
 	static void STOP_CUTSCENE_CAPTURE() { invoke<Void>(0x5BCC78E8); }
-	static BOOL GET_CUTSCENE_CAPTURE_REQUEST(int bufferSize, const char* buffer) { return invoke<BOOL>(0xB2A87EE9, bufferSize, buffer); }
+	static BOOL GET_CUTSCENE_CAPTURE_REQUEST(int bufferSize, char* buffer) { return invoke<BOOL>(0xB2A87EE9, bufferSize, buffer); }
 	static void CUTSCENE_DISABLE_FADE_IN_GAME_AT_END(BOOL toggle) { invoke<Void>(0xBAC5D71B, toggle); }
 	static void CUTSCENE_SET_OVERLAY_TYPE(int type) { invoke<Void>(0xC3E5AA5C, type); }
 	static void CUTSCENE_OBJECT_OVERRIDE_VISIBILITY(const char* objectName) { invoke<Void>(0x0C63BD13, objectName); }
@@ -3645,13 +3645,13 @@ namespace NETWORK
 	static void NETWORK_GET_TEAM_RGB_COLOUR(int team, int* r, int* g, int* b) { invoke<Void>(0x1DA4FCE0, team, r, g, b); } // unused
 	static void NETWORK_SET_TEAM_COLOUR(int team, int colorIndex) { invoke<Void>(0x91F51C10, team, colorIndex); }
 	static int NETWORK_GET_FRIEND_COUNT() { return invoke<int>(0xA396ACDE); } // unused
-	static void NETWORK_GET_FRIEND_NAME(int bufferSize, const char* buffer, int friendIndex) { invoke<Void>(0x97420B6D, bufferSize, buffer, friendIndex); } // unused
+	static void NETWORK_GET_FRIEND_NAME(int bufferSize, char* buffer, int friendIndex) { invoke<Void>(0x97420B6D, bufferSize, buffer, friendIndex); } // unused
 	static BOOL NETWORK_IS_FRIEND_ONLINE(const char* friendName) { return invoke<BOOL>(0xE0A42430, friendName); } // unused
 	static BOOL NETWORK_IS_FRIEND_IN_SAME_TITLE(const char* friendName) { return invoke<BOOL>(0xC54365C2, friendName); } // unused
 	static void NETWORK_SHOW_FRIEND_PROFILE_UI(const char* friendName) { invoke<Void>(0x58D0361F, friendName); } // unused
 	static void NETWORK_SHOW_PLAYER_PROFILE_UI(Player player) { invoke<Void>(0x4F05A4BE, player); } // unused
 	static int NETWORK_GET_NUM_PLAYERS_MET() { return invoke<int>(0xB04FC561); } // unused
-	static void NETWORK_GET_MET_PLAYER_NAME(int bufferSize, const char* buffer, int metPlayerIndex) { invoke<Void>(0xA70BA410, bufferSize, buffer, metPlayerIndex); } // unused
+	static void NETWORK_GET_MET_PLAYER_NAME(int bufferSize, char* buffer, int metPlayerIndex) { invoke<Void>(0xA70BA410, bufferSize, buffer, metPlayerIndex); } // unused
 	static void NETWORK_SHOW_MET_PLAYER_PROFILE_UI(int metPlayerIndex) { invoke<Void>(0x2AB80821, metPlayerIndex); } // unused
 	static void NETWORK_SHOW_MET_PLAYER_FEEDBACK_UI(int metPlayerIndex) { invoke<Void>(0x7759A85A, metPlayerIndex); } // unused
 	static BOOL NETWORK_IS_SESSION_INVITABLE() { return invoke<BOOL>(0x91E81052); } // unused
@@ -3760,7 +3760,7 @@ namespace NETWORK
 	static int GET_LOCAL_PLAYER_XP() { return invoke<int>(0x788C69A2); } // unused
 	static int GET_NETWORK_PLAYER_XP(Player player, BOOL p1) { return invoke<int>(0xF8BC3984, player, p1); }
 	static Player GET_PLAYER_KILLER(Player player) { return invoke<Player>(0x7A2356DA, player); } // unused
-	static void GET_PLAYER_KILLER_NAME(int bufferSize, const char* buffer, Player player) { invoke<Void>(0xF160FA80, bufferSize, buffer, player); } // unused
+	static void GET_PLAYER_KILLER_NAME(int bufferSize, char* buffer, Player player) { invoke<Void>(0xF160FA80, bufferSize, buffer, player); } // unused
 	static Hash GET_PLAYER_KILLER_WEAPON(Player player) { return invoke<Hash>(0x46299DFB, player); }
 	static Hash GET_PLAYER_CAUSE_OF_DEATH(Player player) { return invoke<Hash>(0x007E3DE8, player); }
 	static void SET_MP_GAME_DIFFICULTY(int difficulty) { invoke<Void>(0x86C7C8EF, difficulty); }
@@ -3849,17 +3849,17 @@ namespace WATER
 
 namespace XML
 {
-	static BOOL LOAD_XML_FILE(const char* name) { return invoke<BOOL>(0x1C084D18); } // unused
+	static BOOL LOAD_XML_FILE(const char* name) { return invoke<BOOL>(0x1C084D18, name); } // unused
 	static void DELETE_XML_FILE() { invoke<Void>(0xCA3AF245); } // unused
 	static int GET_NUMBER_OF_XML_NODES() { return invoke<int>(0x3CAACE0D); } // unused
 	static void GET_NEXT_XML_NODE() { invoke<Void>(0xA9FDD7A1); } // unused
-	static void GET_XML_NODE_NAME(int bufferSize, const char* buffer) { invoke<Void>(0x8450DBA1, bufferSize, buffer); } // unused
+	static void GET_XML_NODE_NAME(int bufferSize, char* buffer) { invoke<Void>(0x8450DBA1, bufferSize, buffer); } // unused
 	static int GET_NUMBER_OF_XML_NODE_ATTRIBUTES() { return invoke<int>(0xED658C76); } // unused
-	static void GET_XML_NODE_ATTRIBUTE_NAME(int bufferSize, const char* buffer, int attributeIndex) { invoke<Void>(0xC93DD4B8, bufferSize, buffer, attributeIndex); } // unused
+	static void GET_XML_NODE_ATTRIBUTE_NAME(int bufferSize, char* buffer, int attributeIndex) { invoke<Void>(0xC93DD4B8, bufferSize, buffer, attributeIndex); } // unused
 	static int GET_INT_FROM_XML_NODE_ATTRIBUTE(int attributeIndex) { return invoke<int>(0x1C524DBB, attributeIndex); } // unused
 	static float GET_FLOAT_FROM_XML_NODE_ATTRIBUTE(int attributeIndex) { return invoke<float>(0x9C58C97F, attributeIndex); } // unused
 	static BOOL GET_BOOL_FROM_XML_NODE_ATTRIBUTE(int attributeIndex) { return invoke<BOOL>(0x2D285BBA, attributeIndex); } // unused
-	static void GET_STRING_FROM_XML_NODE_ATTRIBUTE(int bufferSize, const char* buffer, int attributeIndex) { invoke<Void>(0x60BF58D2, bufferSize, buffer, attributeIndex); } // unused
+	static void GET_STRING_FROM_XML_NODE_ATTRIBUTE(int bufferSize, char* buffer, int attributeIndex) { invoke<Void>(0x60BF58D2, bufferSize, buffer, attributeIndex); } // unused
 	static BOOL GET_XML_NAMED_NODE(const char* nodeName) { return invoke<BOOL>(0x0E5855B5, nodeName); } // unused
 }
 
@@ -3867,14 +3867,14 @@ namespace LOBBY
 {
 	static BOOL LOBBY_HAS_MATCH_STARTED() { return invoke<BOOL>(0xD5189EE8); } // unused
 	static int LOBBY_GET_NUM_GAME_MODES() { return invoke<int>(0xE30A3B07); } // unused
-	static void LOBBY_GET_GAME_MODE_NAME(int bufferSize, const char* buffer, int gameMode) { invoke<Void>(0x3CE1674C, bufferSize, buffer, gameMode); } // unused
+	static void LOBBY_GET_GAME_MODE_NAME(int bufferSize, char* buffer, int gameMode) { invoke<Void>(0x3CE1674C, bufferSize, buffer, gameMode); } // unused
 	static int LOBBY_GET_SELECTED_GAME_MODE() { return invoke<int>(0xE65EC1C1); }
 	static int LOBBY_GET_NUM_ACTIVE_OPTIONS() { return invoke<int>(0x8DB907E0); } // unused
 	static int LOBBY_GET_NUM_OPTIONS(int gameMode) { return invoke<int>(0x1DBC1E68, gameMode); } // unused
-	static void LOBBY_GET_OPTION_NAME(int bufferSize, const char* buffer, int gameMode, int option) { invoke<Void>(0x073F8D7A, bufferSize, buffer, gameMode, option); } // unused
+	static void LOBBY_GET_OPTION_NAME(int bufferSize, char* buffer, int gameMode, int option) { invoke<Void>(0x073F8D7A, bufferSize, buffer, gameMode, option); } // unused
 	static int LOBBY_GET_OPTION_VALUE(int gameMode, int option) { return invoke<int>(0xFD0AF1D4, gameMode, option); }
 	static int LOBBY_GET_NUM_SUB_OPTIONS(int gameMode, int option) { return invoke<int>(0x34332D95, gameMode, option); } // unused
-	static void LOBBY_GET_SUB_OPTION_NAME(int bufferSize, const char* buffer, int gameMode, int option) { invoke<Void>(0x8D6AB46A, bufferSize, buffer, gameMode, option); } // unused
+	static void LOBBY_GET_SUB_OPTION_NAME(int bufferSize, char* buffer, int gameMode, int option) { invoke<Void>(0x8D6AB46A, bufferSize, buffer, gameMode, option); } // unused
 	static BOOL LOBBY_GET_OPTION_IS_ACTIVE(int gameMode, int option) { return invoke<BOOL>(0xF79A7F40, gameMode, option); } // unused
 	static BOOL LOBBY_GET_OPTION_IS_DEACTIVE(int gameMode, int option) { return invoke<BOOL>(0x600E3311); } // unused
 	static BOOL LOBBY_GET_OPTION_IS_DISABLE(int gameMode, int option) { return invoke<BOOL>(0x664091E2); } // unused
@@ -3884,7 +3884,7 @@ namespace LOBBY
 	static BOOL LOBBY_GET_OPTION_IS_MODEL(int gameMode, int option) { return invoke<BOOL>(0xEF2DEAA4); } // unused
 	static BOOL LOBBY_GET_OPTION_EXISTS(int gameMode, int option) { return invoke<BOOL>(0xFF3B14E9); } // unused
 	static int LOBBY_GET_MIN_PLAYERS() { return invoke<int>(0xC5731817); }
-	static void GET_LAUNCH_SCRIPT(int bufferSize, const char* buffer) { invoke<Void>(0xADB14C47, bufferSize, buffer); } // unused
+	static void GET_LAUNCH_SCRIPT(int bufferSize, char* buffer) { invoke<Void>(0xADB14C47, bufferSize, buffer); } // unused
 }
 
 namespace SEV
@@ -4006,7 +4006,7 @@ namespace ISEQ
 	static BOOL ISEQ_IS_LOADED(Hash hash) { return invoke<BOOL>(0x56DDD872, hash); }
 	static BOOL ISEQ_REGISTER_ENTITY(Hash hash, const char* entityName, Entity entity, int entityType) { return invoke<BOOL>(0xB52B39BB, hash, entityName, entity, entityType); }
 	static void ISEQ_UNREGISTER_ENTITY(Hash hash, const char* entityName) { invoke<Void>(0xAE50ACF9, hash, entityName); }
-	static void ISEQ_GET_NAME(int bufferSize, const char* buffer, Hash hash) { invoke<Void>(0x0E066B0F, bufferSize, buffer, hash); }
+	static void ISEQ_GET_NAME(int bufferSize, char* buffer, Hash hash) { invoke<Void>(0x0E066B0F, bufferSize, buffer, hash); }
 	static BOOL I_SEQUENCE_DOES_EXIST(const char* name) { return invoke<BOOL>(0x50983774, name); } // unused
 	static BOOL ISEQ_DOES_EXIST(Hash hash) { return invoke<BOOL>(0x7AA95EAB, hash); }
 }
@@ -4132,7 +4132,7 @@ namespace NETWORK_LEVEL_DATA
 	static Any NETWORK_LEVEL_DATA_GET_VECTOR_FROM_NODE(Any p0, Any p1, Any p2) { return invoke<Any>(0x9209CE38, p0, p1, p2); }
 	static Any NETWORK_LEVEL_DATA_GET_BOOL() { return invoke<Any>(0x282E20CB); } // unused
 	static Any NETWORK_LEVEL_DATA_GET_BOOL_FROM_NODE(Any p0, Any p1, Any p2) { return invoke<Any>(0xC5F02A7E, p0, p1, p2); }
-	static Any NETWORK_REQUIRE_STORED_QUERIES(Any p0) { return invoke<Any>(0x1C183BC8, p0); }
+	static BOOL NETWORK_REQUIRE_STORED_QUERIES(const char* fileName) { return invoke<BOOL>(0x1C183BC8, fileName); }
 	static void NETWORK_DUMP_STORED_QUERIES() { invoke<Void>(0x53B6E465); }
 	static Any NETWORK_LEVEL_DATA_RUN_STORED_QUERY_NODE(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0xEE658568, p0, p1, p2, p3); }
 	static Any NETWORK_LEVEL_DATA_RUN_STORED_QUERY_COUNT(Any p0, Any p1, Any p2, Any p3) { return invoke<Any>(0x7F3DAF76, p0, p1, p2, p3); }
