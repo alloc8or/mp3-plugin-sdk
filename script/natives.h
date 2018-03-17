@@ -96,21 +96,21 @@ namespace AUDIO
 	static void AUDIO_RESET_PED_DEAD_SPEECH_FLAG(Ped ped) { invoke<Void>(0x15256E0C, ped); }
 	static void SCREAM(Ped ped) { invoke<Void>(0xD1956683, ped); } // unused
 	static void PLAY_PED_AMBIENT_SPEECH(Ped ped, const char* speech, BOOL p2, BOOL p3, int p4, BOOL p5, int p6) { invoke<Void>(0xB4EB114E, ped, speech, p2, p3, p4, p5, p6); }
-	static Any PLAY_PED_AMBIENT_SPEECH_WITH_VOICE() { return invoke<Any>(0xA3E3390C); } // unused
+	static void PLAY_PED_AMBIENT_SPEECH_WITH_VOICE(Ped ped, const char* speech, const char* voice, BOOL p3, BOOL p4, int p5, BOOL p6, int p7) { invoke<Void>(0xA3E3390C, ped, speech, voice, p3, p4, p5, p6, p7); } // unused
 	static void PRELOAD_ANNOUNCER_SPEECH(const char* name, BOOL p1) { invoke<Void>(0x92DE336C, name, p1); }
 	static void PLAY_PRELOADED_ANNOUNCER_SPEECH() { invoke<Void>(0x2B508AA3); }
 	static void PLAY_PRELOADED_SPEECH(Ped ped) { invoke<Void>(0xC7F2260A, ped); } // unused
 	static void PLAY_RELIEF_SIGH(Ped ped) { invoke<Void>(0x622C486D, ped); } // unused
 	static void SET_AMBIENT_VOICE_NAME(Ped ped, const char* voiceName, float p2) { invoke<Void>(0xBD2EA1A1, ped, voiceName, p2); } // unused
 	static void SET_PED_VOICE_FULL(Ped ped) { invoke<Void>(0x7A7C24DD, ped); } // unused
-	static Any SET_VOICE_ID_FROM_HEAD_COMPONENT() { return invoke<Any>(0x84EDB1B8); } // unused
-	static void STOP_CURRENT_PLAYING_AMBIENT_SPEECH(Any p0) { invoke<Void>(0xBB8E64BF, p0); }
-	static Any IS_AMBIENT_SPEECH_PLAYING() { return invoke<Any>(0x1972E8AA); } // unused
-	static Any IS_SCRIPTED_SPEECH_PLAYING(Any p0) { return invoke<Any>(0x2C653904, p0); }
+	static void SET_VOICE_ID_FROM_HEAD_COMPONENT(Ped ped, int unused1, BOOL unused2) { invoke<Void>(0x84EDB1B8, ped, unused1, unused2); } // unused
+	static void STOP_CURRENT_PLAYING_AMBIENT_SPEECH(Ped ped) { invoke<Void>(0xBB8E64BF, ped); }
+	static BOOL IS_AMBIENT_SPEECH_PLAYING(Ped ped) { return invoke<BOOL>(0x1972E8AA, ped); } // unused
+	static BOOL IS_SCRIPTED_SPEECH_PLAYING(Ped ped) { return invoke<BOOL>(0x2C653904, ped); }
 	static BOOL IS_ANY_SPEECH_PLAYING(Ped ped) { return invoke<BOOL>(0x2B74A6D6, ped); }
-	static Any IS_MONOLOGUE_PLAYING() { return invoke<Any>(0xF6006ECB); }
-	static Any TIME_SINCE_LAST_MONOLOGUE() { return invoke<Any>(0x4B91ACE8); }
-	static Any PLAY_PED_AUDIO_EVENT_ANIM() { return invoke<Any>(0x2CDC0A7A); } // unused
+	static BOOL IS_MONOLOGUE_PLAYING() { return invoke<BOOL>(0xF6006ECB); }
+	static int TIME_SINCE_LAST_MONOLOGUE() { return invoke<int>(0x4B91ACE8); }
+	static void PLAY_PED_AUDIO_EVENT_ANIM(Ped ped, const char* p1) { invoke<Void>(0x2CDC0A7A, ped, p1); } // unused
 	static void PLAY_END_CREDITS_MUSIC(BOOL play) { invoke<Void>(0x8E88B3CC, play); }
 	static int GET_CUTSCENE_AUDIO_TIME_MS() { return invoke<int>(0xCA56C61D); }
 	static void STOP_CUTSCENE_AUDIO() { invoke<Void>(0x55461BE6); }
@@ -131,9 +131,9 @@ namespace AUDIO
 	static void PLAY_SCRIPT_STREAM_FRONTEND(Any p0) { invoke<Void>(0xFE8558E8, p0); }
 	static void PLAY_SCRIPT_STREAM_FRONTEND_INT(Any p0, Any p1) { invoke<Void>(0x73CB1718, p0, p1); }
 	static void STOP_SCRIPT_STREAM(Any p0) { invoke<Void>(0xD6CA123C, p0); }
-	static void ENABLE_PED_PAIN(Any p0, Any p1) { invoke<Void>(0xB2AE469E, p0, p1); }
-	static void STOP_PED_SPEAKING(Any p0, Any p1) { invoke<Void>(0xFF92B49D, p0, p1); }
-	static Any IS_AMBIENT_SPEECH_DISABLED() { return invoke<Any>(0x109D1F89); } // unused
+	static void ENABLE_PED_PAIN(Ped ped, BOOL toggle) { invoke<Void>(0xB2AE469E, ped, toggle); }
+	static void STOP_PED_SPEAKING(Ped ped, BOOL toggle) { invoke<Void>(0xFF92B49D, ped, toggle); }
+	static BOOL IS_AMBIENT_SPEECH_DISABLED(Ped ped) { return invoke<BOOL>(0x109D1F89, ped); } // unused
 	static Any AUDIO_SET_PLAYER_PAIN_NAME() { return invoke<Any>(0xE8A10A1A); } // unused
 	static Any AUDIO_SET_SIDEKICK_PAIN_NAME() { return invoke<Any>(0x7C64FB16); } // unused
 	static void SET_SIREN_WITH_NO_DRIVER(Vehicle vehicle, BOOL toggle) { invoke<Void>(0x77182D58, vehicle, toggle); } // unused
@@ -879,7 +879,7 @@ namespace UI
 	static Any _0x5F5212D9() { return invoke<Any>(0x5F5212D9); } // unused
 }
 
-namespace GAMEPLAY
+namespace MISC
 {
 	static void SET_RICH_PRESENCE(Any* p0) { invoke<Void>(0x7BDCBD45, p0); }
 	static int GET_CURRENT_ARCADE_MODE() { return invoke<int>(0xD7FA564A); } // unused
@@ -1166,7 +1166,7 @@ namespace GAMEPLAY
 	static Any _0xAA9D237A() { return invoke<Any>(0xAA9D237A); }
 }
 
-namespace CONTROLS
+namespace PAD
 {
 	static BOOL IS_PICKUP_CONSUMED(int pickup) { return invoke<BOOL>(0x21F50584, pickup); } // unused
 	static void SET_ACTION_CONSUMED(int action, BOOL toggle) { invoke<Void>(0x52FAFA2B, action, toggle); }
@@ -3603,7 +3603,7 @@ namespace CUTSCENE
 	static void CUTSCENE_REGISTER_VEHICLE_COPY(Vehicle vehicle, const char* name) { invoke<Void>(0xF18EBF23, vehicle, name); }
 }
 
-namespace TIME
+namespace CLOCK
 {
 	static void SET_TIME_ONE_DAY_FORWARD() { invoke<Void>(0xBB56C2E5); } // unused
 	static void SET_TIME_ONE_DAY_BACK() { invoke<Void>(0x0DB2A037); } // unused
@@ -4047,7 +4047,7 @@ namespace DATABASE
 	static BOOL DB_IS_BOOL_VALID(const char* name, const char* entryName) { return invoke<BOOL>(0x991BC5CF, name, entryName); } // unused
 }
 
-namespace ROPE
+namespace PHYSICS
 {
 	static Rope ADD_ROPE(Vector3* coords, Vector3* rot, float length, int ropeType) { return invoke<Rope>(0xA592EC74, coords, rot, length, ropeType); } // unused
 	static void DELETE_ROPE(Rope* rope) { invoke<Void>(0x748D72AF, rope); } // unused
@@ -4152,8 +4152,8 @@ using namespace CAM; \
 using namespace ACTIONTREE; \
 using namespace DEBUG; \
 using namespace UI; \
-using namespace GAMEPLAY; \
-using namespace CONTROLS; \
+using namespace MISC; \
+using namespace PAD; \
 using namespace PED; \
 using namespace PEDGROUPTASK; \
 using namespace PLAYER; \
@@ -4170,7 +4170,7 @@ using namespace ZONE; \
 using namespace GRAPHICS; \
 using namespace NET; \
 using namespace CUTSCENE; \
-using namespace TIME; \
+using namespace CLOCK; \
 using namespace NETWORK; \
 using namespace BRAIN; \
 using namespace LOADOUT; \
@@ -4181,6 +4181,6 @@ using namespace SEV; \
 using namespace ISEQ; \
 using namespace COVER; \
 using namespace DATABASE; \
-using namespace ROPE; \
+using namespace PHYSICS; \
 using namespace DEATHRECORD; \
 using namespace NETWORK_LEVEL_DATA;
