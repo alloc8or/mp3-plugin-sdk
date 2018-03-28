@@ -480,7 +480,7 @@ namespace DEBUG
 	static void FORCE_CLOSE_NETWORK() { invoke<Void>(0xD63AEB80); }
 }
 
-namespace UI
+namespace HUD
 {
 	static void SET_CHIQUITAS_ALWAYS_VISIBLE_ON_PLAYER(int p0, BOOL toggle) { invoke<Void>(0xCA7E5546, p0, toggle); } // unused
 	static void SET_CHIQUITAS_ALWAYS_VISIBLE(BOOL toggle) { invoke<Void>(0x29132B80, toggle); } // unused
@@ -2169,7 +2169,7 @@ namespace PLAYER
 	static void _0x006D3541(BOOL toggle) { invoke<Void>(0x006D3541, toggle); }
 }
 
-namespace AI
+namespace TASK
 {
 	static void TASK_PAUSE(Ped ped, int duration) { invoke<Void>(0x17A64668, ped, duration); }
 	static void TASK_STAND_STILL(Ped ped, int duration) { invoke<Void>(0x6F80965D, ped, duration); }
@@ -3427,7 +3427,7 @@ namespace GRAPHICS
 	static void SET_NOISEOVERIDE(BOOL toggle) { invoke<Void>(0xD576F5DD, toggle); } // unused
 	static void SET_NOISINESSOVERIDE(float value) { invoke<Void>(0x046B62D9, value); } // unused
 	static void RESET_ALL_PTFX() { invoke<Void>(0x5080E987); }
-	static Any START_PARTICLE_FX_NON_LOOPED_AT_COORD(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7) { return invoke<Any>(0xDD79D679, p0, p1, p2, p3, p4, p5, p6, p7); }
+	static void START_PARTICLE_FX_NON_LOOPED_AT_COORD(const char* ptfxName, float xPos, float yPos, float zPos, float xRot, float yRot, float zRot, float scale) { invoke<Void>(0xDD79D679, ptfxName, xPos, yPos, zPos, xRot, yRot, zRot, scale); }
 	static Any START_PARTICLE_FX_NON_LOOPED_AT_COORD_WITH_GROUND_PLANE() { return invoke<Any>(0xD120A4B4); } // unused
 	static Any START_PARTICLE_FX_NON_LOOPED_AT_COORD_WITH_OFFSET_GROUND_PLANE() { return invoke<Any>(0xC691A67E); } // unused
 	static Any START_PARTICLE_FX_NON_LOOPED_AT_COORD_WITH_NEARBY_COLLISION() { return invoke<Any>(0x5EFBDD3E); } // unused
@@ -4151,13 +4151,13 @@ using namespace AUDIO; \
 using namespace CAM; \
 using namespace ACTIONTREE; \
 using namespace DEBUG; \
-using namespace UI; \
+using namespace HUD; \
 using namespace MISC; \
 using namespace PAD; \
 using namespace PED; \
 using namespace PEDGROUPTASK; \
 using namespace PLAYER; \
-using namespace AI; \
+using namespace TASK; \
 using namespace VEHICLE; \
 using namespace OBJECT; \
 using namespace SCRIPT; \
