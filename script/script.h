@@ -2,6 +2,48 @@
 
 #include <string>
 
+inline constexpr char ToLower(const char c)
+{
+	return (c >= 'A' && c <= 'Z') ? (c - 'A' + 'a') : c;
+}
+
+inline constexpr char ToUpper(const char c)
+{
+	return (c >= 'a' && c <= 'z') ? (c - 'a' + 'A') : c;
+}
+
+inline constexpr uint32_t HashString(const char* string)
+{
+	uint32_t hash = 0;
+
+	for (; *string; ++string)
+	{
+		hash += ToLower(*string);
+		hash += (hash << 10);
+		hash ^= (hash >> 6);
+	}
+
+	hash += (hash << 3);
+	hash ^= (hash >> 11);
+	hash += (hash << 15);
+
+	return hash;
+}
+
+inline constexpr uint16_t GetEntityBoneNameHash(const char* boneName)
+{
+	uint32_t hash = 0;
+
+	for (; *boneName; ++boneName)
+	{
+		hash = ToUpper(*boneName) + 16 * hash;
+		if (hash & 0xF0000000)
+			hash ^= hash & 0xF0000000 ^ ((hash & 0xF0000000) >> 24);
+	}
+
+	return hash % 0xFE8F + 0x170;
+}
+
 static const std::string weaponNames[] = {
 	"WEAPON_AMMO_BAG",
 	"WEAPON_BEANBAG_LAUNCHER",
