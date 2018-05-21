@@ -931,13 +931,13 @@ static const std::string unlockSemantics[] = {
 static const Hash profileSettingHashes[] = {
 	0x002C5D94,
 	0x003327FC,
-	0x02041719,
+	0x02041719, // Voice Chat Talking Enabled (0 = Off, 1 = On)
 	0x0278EDEB,
 	0x03BD2DCC,
 	0x03CC561B,
 	0x05034C6B,
 	0x067E3D12, // Gamepad Aiming Acceleration (1 - 10)
-	0x06F0C30B,
+	0x06F0C30B, // Voice Chat Microphone Sensitivity (0 - 10)
 	0x07EB6EF6,
 	0x08B15025, // Gamepad Configuration (0 = Type 1, 1 = Type 2, 2 = Type 3, 3 = Type 4)
 	0x09D0A733,
@@ -990,14 +990,14 @@ static const Hash profileSettingHashes[] = {
 	0x479CDBD8,
 	0x485366B9,
 	0x48F6AD77,
-	0x4B55F932,
+	0x4B55F932, // Gameplay Difficulty (1 = Easy, 2 = Medium, 3 = Hard)
 	0x4B9B417A,
 	0x4D2F41F6,
 	0x4D5E3B21,
 	0x4DB76EB1,
 	0x4F5665EB,
 	0x4FA52B02,
-	0x50469DBF,
+	0x50469DBF, // Voice Chat (0 = Off, 1 = On)
 	0x516F63E8,
 	0x526032D2,
 	0x53E76C7D,
@@ -1015,7 +1015,7 @@ static const Hash profileSettingHashes[] = {
 	0x64BCDDB0,
 	0x65167E7E,
 	0x66581809,
-	0x66C7928C,
+	0x66C7928C, // Voice Chat Sound Volume (0 - 100)
 	0x68C62AB0,
 	0x6AC88C9E,
 	0x6BBDB259,
@@ -1042,7 +1042,7 @@ static const Hash profileSettingHashes[] = {
 	0x88D7C78D,
 	0x8A013F38,
 	0x8ACA1F6D,
-	0x8B9B4936,
+	0x8B9B4936, // Voice Chat Microphone Volume (0 - 100)
 	0x8B9D0781,
 	0x8BB3CDEE,
 	0x8D021C19,
@@ -1074,7 +1074,7 @@ static const Hash profileSettingHashes[] = {
 	0xAC1F4639, // Target Tracking (0 = Off, 1 = On)
 	0xAC821F61,
 	0xAD605BE6,
-	0xAEFD40DD,
+	0xAEFD40DD, // Voice Chat Output Device (0 = Default)
 	0xB017B11F,
 	0xB0D35F5E,
 	0xB165393A,
@@ -1087,9 +1087,9 @@ static const Hash profileSettingHashes[] = {
 	0xBB48D695, // Gamepad Invert Horizontal Look (0 = Off, 1 = On)
 	0xBC50E82D, // Target Slowdown (0 = Off, 1 = On)
 	0xBD9A0493,
-	0xBFDD0BAD,
+	0xBFDD0BAD, // Gamepad Targeting (0 = Hard Lock, 1 = Soft Lock, 2 = Free Aim)
 	0xC3562A04,
-	0xC37E728F,
+	0xC37E728F, // Voice Chat Input Device (0 = Default)
 	0xC63CC639,
 	0xC850ECD6,
 	0xC9CB92C3,
@@ -1115,21 +1115,21 @@ static const Hash profileSettingHashes[] = {
 	0xDA456A49,
 	0xDD0B0AF2, // Invert Mouse Look (0 = Off, 1 = On)
 	0xE0C47748,
-	0xE19FEAF3,
+	0xE19FEAF3, // Voice Chat Output Volume (0 - 100)
 	0xE1A44622,
 	0xE1FF9376,
 	0xE4B3082F,
 	0xE4CAFBDB,
 	0xE5A90D5D,
 	0xE6C9C60A,
-	0xEA509C79,
+	0xEA509C79, // Voice Chat Mode (0 = Voice Activated, 1 = Push To Talk)
 	0xEBDFBEF5,
 	0xEC7EF8D1,
 	0xECCDFFBC,
 	0xECE6E2A5,
 	0xEE1F2222,
 	0xEE9F65E1,
-	0xEF234C82,
+	0xEF234C82, // Voice Chat Music Volume (0 - 100)
 	0xF2121B49,
 	0xF3554A46,
 	0xF621009C,
