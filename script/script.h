@@ -990,7 +990,7 @@ static const Hash profileSettingHashes[] = {
 	0x479CDBD8,
 	0x485366B9,
 	0x48F6AD77,
-	0x4B55F932, // Gameplay Difficulty (1 = Easy, 2 = Medium, 3 = Hard)
+	0x4B55F932, // Replay Mode Difficulty (1 = Easy, 2 = Medium, 3 = Hard)
 	0x4B9B417A,
 	0x4D2F41F6,
 	0x4D5E3B21,
@@ -1072,7 +1072,7 @@ static const Hash profileSettingHashes[] = {
 	0xA894F50D, // Gamepad Invert Vertical Look (0 = Off, 1 = On)
 	0xABF3FA41,
 	0xAC1F4639, // Target Tracking (0 = Off, 1 = On)
-	0xAC821F61,
+	0xAC821F61, // MP Game Difficulty (1 = Easy, 2 = Medium, 3 = Hard)
 	0xAD605BE6,
 	0xAEFD40DD, // Voice Chat Output Device (0 = Default)
 	0xB017B11F,
@@ -1093,7 +1093,7 @@ static const Hash profileSettingHashes[] = {
 	0xC63CC639,
 	0xC850ECD6,
 	0xC9CB92C3,
-	0xC9F7C06F,
+	0xC9F7C06F, // Game Difficulty (1 = Easy, 2 = Medium, 3 = Hard)
 	0xCACCE34B,
 	0xCB172E30,
 	0xCC96A601,
@@ -1142,7 +1142,7 @@ static const Hash profileSettingHashes[] = {
 	0xF9CCB8C7,
 	0xFAF59DCD, // Southpaw Mode (0 = Off, 1 = On)
 	0xFB4FBA51,
-	0xFB7124C6,
+	0xFB7124C6, // Lowest Used Difficulty
 	0xFEA632BB,
 	0xFF15BE0F
 };
