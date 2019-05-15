@@ -1058,8 +1058,7 @@ namespace MISC
 	static Any GAMEPLAY_HELPER_BOX_ANGLED_CREATE_VER2() { return invoke<Any>(0x8E89F378); } // unused
 	static void GAMEPLAY_HELPER_BOX_DESTROY(Any p0) { invoke<Void>(0x27C9E914, p0); }
 	static void GAMEPLAY_HELPER_BOX_SET_ENABLED(Any p0, Any p1) { invoke<Void>(0x75BF06F3, p0, p1); }
-	static Vector3 GET_GAMEPLAY_HELPER_BOX_COORD(const char* name) { return invoke<Vector3>(0xF0C17F9A, name); } // unused
-	static Any GET_GAMEPLAY_HELPER_VOLUME_COORD() { return invoke<Any>(0x2A9EA7D3); } // unused
+	static Vector3 GET_GAMEPLAY_HELPER_BOX_COORD(const char* boxName) { return invoke<Vector3>(0xF0C17F9A, boxName); } // unused
 	static void GAMEPLAY_HELPER_CYLINDER_CREATE(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6) { invoke<Void>(0x05E76389, p0, p1, p2, p3, p4, p5, p6); }
 	static Any GET_GAMEPLAY_HELPER_CYLINDER_RADIUS() { return invoke<Any>(0x2F97E6C0); } // unused
 	static Any SET_GAMEPLAY_HELPER_CYLINDER_RADIUS() { return invoke<Any>(0x4EBFD673); } // unused
@@ -1067,7 +1066,8 @@ namespace MISC
 	static Any SET_GAMEPLAY_HELPER_CYLINDER_HEIGHT() { return invoke<Any>(0xB6B24984); } // unused
 	static void GAMEPLAY_HELPER_VOLUME_DESTROY(Any p0) { invoke<Void>(0xD154D5DE, p0); }
 	static Any GAMEPLAY_HELPER_VOLUME_SET_ENABLED() { return invoke<Any>(0xEAA23DE7); } // unused
-	static Any SET_GAMEPLAY_HELPER_VOLUME_COORD() { return invoke<Any>(0xAE3938DF); } // unused
+	static Vector3 GET_GAMEPLAY_HELPER_VOLUME_COORD(const char* volumeName) { return invoke<Vector3>(0x2A9EA7D3, volumeName); } // unused
+	static void SET_GAMEPLAY_HELPER_VOLUME_COORD(const char* volumeName, float x, float y, float z) { invoke<Void>(0xAE3938DF, volumeName, x, y, z); } // unused
 	static void SET_INTERACTION_VOLUME_STATIC_VARIABLES(Any p0, Any p1, Any p2) { invoke<Void>(0x931C72B3, p0, p1, p2); }
 	static void ATTACH_INTERACT_VOLUME_TO_PED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10) { invoke<Void>(0x05167446, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10); }
 	static void ATTACH_EXPLOSIVE_INTERACT_VOLUME_TO_PED(Any p0, Any p1, Any p2, Any p3, Any p4, Any p5, Any p6, Any p7, Any p8, Any p9, Any p10, Any p11, Any p12) { invoke<Void>(0x13BAF8E2, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12); }
@@ -2679,7 +2679,7 @@ namespace VEHICLE
 	static void FREE_VEHICLE_INST_LIGHT_TUNE_DATA(Vehicle vehicle) { invoke<Void>(0x8DA263E8, vehicle); }
 	static void SET_VEHICLE_INST_LIGHT_TUNE_VALUES(Vehicle vehicle, Any* data) { invoke<Void>(0x3ADF1AAA, vehicle, data); } // unused
 	static void SET_VEHICLE_FREEZE_AFTER_BLOWING_UP(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xFCD50E3D, vehicle, toggle); }
-	static void GAMEPLAY_HELPER_BOX_CREATE_VEHICLE_ATTACHED(int p0, const char* name, Vehicle vehicle, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10, float p11, BOOL p12, BOOL p13) { invoke<Void>(0x1859C65D, p0, name, vehicle, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13); }
+	static void GAMEPLAY_HELPER_BOX_CREATE_VEHICLE_ATTACHED(int p0, const char* boxName, Vehicle vehicle, float p3, float p4, float p5, float p6, float p7, float p8, float p9, float p10, float p11, BOOL p12, BOOL p13) { invoke<Void>(0x1859C65D, p0, boxName, vehicle, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13); }
 	static void SET_VEHICLE_REACT_TO_EXPLOSION(Vehicle vehicle, BOOL toggle) { invoke<Void>(0xB755CE11, vehicle, toggle); }
 	static BOOL PLAY_VEHICLE_ANIM(Vehicle vehicle, const char* animName, const char* animDict, float speedMultiplier, BOOL p4, BOOL p5) { return invoke<BOOL>(0x6EB2CA78, vehicle, animName, animDict, speedMultiplier, p4, p5); }
 	static void DELETE_VEHICLE_ANIMATOR(Vehicle vehicle) { invoke<Void>(0xBD510181, vehicle); } // unused
@@ -2728,7 +2728,7 @@ namespace OBJECT
 	static void SET_PICKUP_AMMO(Any p0, Any p1) { invoke<Void>(0xCCA72391, p0, p1); }
 	static Any GET_PICKUP_AMMO() { return invoke<Any>(0x8B9EE98B); } // unused
 	static void REMOVE_PICKUP(Pickup pickup) { invoke<Void>(0x64A7A0E0, pickup); }
-	static void REMOVE_PICKUPS_OF_TYPE_IN_GAMEPLAY_HELPER_BOX(Hash pickupHash, const char* name) { invoke<Void>(0xDBA0AF51, pickupHash, name); }
+	static void REMOVE_PICKUPS_OF_TYPE_IN_GAMEPLAY_HELPER_BOX(Hash pickupHash, const char* boxName) { invoke<Void>(0xDBA0AF51, pickupHash, boxName); }
 	static Any SET_DEAD_PEDS_DROP_WEAPONS() { return invoke<Any>(0x197472B9); } // unused
 	static Any SET_PLAYERS_DROP_MONEY_IN_NETWORK_GAME() { return invoke<Any>(0x0806204B); } // unused
 	static BOOL IS_OBJECT_ON_SCREEN(Object object) { return invoke<BOOL>(0x2AE883EB, object); }
@@ -2826,7 +2826,7 @@ namespace OBJECT
 	static void DOOR_FIND_CLOSEST_ACTIVATE_SPATIAL_DATA(Any p0, Any p1, Any p2, Any p3, Any p4) { invoke<Void>(0xE902B02D, p0, p1, p2, p3, p4); }
 	static BOOL DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS(float x, float y, float z, float radius, Hash modelHash) { return invoke<BOOL>(0x23FF2BA4, x, y, z, radius, modelHash); }
 	static BOOL IS_OBJECT_IN_ANGLED_AREA(Object object, float x1, float y1, float z1, float x2, float y2, float z2, float p7, BOOL p8, BOOL p9) { return invoke<BOOL>(0xABF09CB4, object, x1, y1, z1, x2, y2, z2, p7, p8, p9); } // unused
-	static BOOL IS_OBJECT_IN_GAMEPLAY_HELPER_BOX(Object object, const char* name) { return invoke<BOOL>(0xB51CBB2F, object, name); }
+	static BOOL IS_OBJECT_IN_GAMEPLAY_HELPER_BOX(Object object, const char* boxName) { return invoke<BOOL>(0xB51CBB2F, object, boxName); }
 	static void SET_OBJECT_AS_STEALABLE(Object object, BOOL toggle) { invoke<Void>(0x23A96397, object, toggle); } // unused
 	static BOOL HAS_OBJECT_BEEN_UPROOTED(Object object) { return invoke<BOOL>(0xC220DB67, object); } // unused
 	static Hash GET_OBJECT_MODEL(Object object) { return invoke<Hash>(0x70BECF6A, object); }
