@@ -1,4 +1,4 @@
-// https://unknownmodder.github.io/mp3-native-db/
+// https://alloc8or.github.io/mp3-native-db/
 
 #pragma once
 
